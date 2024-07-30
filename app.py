@@ -7,7 +7,7 @@ def home():
     return render_template('index.html')
 
 @app.route('/greetings')
-def home():
+def greetings():
     return render_template('index.html')
 
 if __name__ == '__main__':
