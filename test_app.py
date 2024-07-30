@@ -14,7 +14,7 @@ class FlaskAppTests(unittest.TestCase):
     def test_greeting_page(self):
         response = self.client.get('/greeting')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Hello', response.data)  # Adjust based on your greeting page content
+        self.assertIn(b'Welcome', response.data)  # Adjust based on your greeting page content
 
 if __name__ == '__main__':
     unittest.main()
