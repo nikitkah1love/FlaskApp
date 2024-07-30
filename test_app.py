@@ -12,7 +12,7 @@ class FlaskAppTests(unittest.TestCase):
         self.assertIn(b'Welcome', response.data)  # Adjust based on your homepage content
 
     def test_greeting_page(self):
-        response = self.client.get('/greetings')
+        response = self.client.get('/greeting')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Welcome', response.data)  # Adjust based on your greeting page content
 
