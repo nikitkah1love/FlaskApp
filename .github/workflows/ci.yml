@@ -27,7 +27,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Activate db
-      - run: |
+        run: |
           python init_db.py
 
       - name: Run tests
