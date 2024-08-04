@@ -39,12 +39,14 @@ class FlaskTestCase(unittest.TestCase):
             'password': 'testpassword'
         })
         self.assertEqual(response.status_code, 302)  # Assuming no redirect
-       # self.assertIn(b'<li class="success">Registration successful! You can now log in.</li>', response.data)
+        self.assertIn(b'Redirecting...', response.data)
 
         # Verify the user was added to the database
-        user = User.query.filter_by(username='testuser').first()
-        self.assertIsNotNone(user)
-        self.assertTrue(check_password_hash(user.password, 'testpassword'))
+        with self.app.app_context():
+
+            user = User.query.filter_by(username='testuser').first()
+            self.assertIsNotNone(user)
+            self.assertTrue(check_password_hash(user.password, 'testpassword'))
 
     def test_login_user(self):
         # Register a user first
