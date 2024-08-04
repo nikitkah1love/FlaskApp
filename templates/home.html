@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Cloud Platform</h1>
+        <p>This is a cloud platform where you can keep your files securely.</p>
+        {% if 'username' in session %}
+            <p>Hello, {{ session['username'] }}! <a href="{{ url_for('user_files') }}">View your files</a></p>
+            <form action="{{ url_for('logout') }}" method="post">
+                <button type="submit" class="btn">Logout</button>
+            </form>
+        {% else %}
+            <p><a href="{{ url_for('login') }}" class="btn">Login</a> or <a href="{{ url_for('register') }}" class="btn">Register</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>
+

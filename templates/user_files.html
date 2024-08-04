@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_files.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Files</h1>
+        <nav>
+            <a href="{{ url_for('home') }}" class="btn">Home</a>
+            <a href="{{ url_for('upload_file') }}" class="btn">Upload New File</a>
+        </nav>
+        <ul class="file-list">
+            {% for file in files %}
+                <li>{{ file }}</li>
+            {% else %}
+                <li>No files uploaded yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
